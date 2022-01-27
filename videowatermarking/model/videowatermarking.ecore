@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="videowatermarking" nsURI="http://www.example.org/videowatermarking"
+    nsPrefix="videowatermarking">
+  <eClassifiers xsi:type="ecore:EClass" name="VideoWatermark">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+        upperBound="-1" eType="#//Database" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" lowerBound="1"
+        upperBound="-1" eType="#//Filter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" lowerBound="1" upperBound="-1"
+        eType="#//User" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="video" upperBound="-1"
+        eType="#//Video" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Database">
+    <eOperations name="SaveData"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FrameNo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WatermarkImage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WatermarkedImage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="video" lowerBound="1" upperBound="-1"
+        eType="#//Video" eOpposite="#//Video/database"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Filter" abstract="true">
+    <eOperations name="Execute">
+      <eParameters name="filter" eType="#//Filter"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eOperations name="LoadVideo"/>
+    <eOperations name="PlayVideo"/>
+    <eOperations name="PauseVideo"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FrameNo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="video" lowerBound="1" upperBound="-1"
+        eType="#//Video"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneticAlgorithm" eSuperTypes="#//Filter">
+    <eOperations name="VideoToFrames"/>
+    <eOperations name="SelectFrame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+        upperBound="-1" eType="#//Database"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Video" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="videoName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="videoType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geneticalgorithm" lowerBound="1"
+        upperBound="-1" eType="#//GeneticAlgorithm"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+        upperBound="-1" eType="#//Database" eOpposite="#//Database/video"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MPG" eSuperTypes="#//Video"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MOV" eSuperTypes="#//Video"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WebCm" eSuperTypes="#//Video"/>
+</ecore:EPackage>

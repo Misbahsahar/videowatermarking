@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/videowatermarking/src-gen" creationIcons="false"
+    editDirectory="/videowatermarking.edit/src-gen" editorDirectory="/videowatermarking.editor/src-gen"
+    modelPluginID="videowatermarking" modelName="Videowatermarking" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>videowatermarking.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Videowatermarking" disposableProviderFactory="true" ecorePackage="videowatermarking.ecore#/">
+    <genClasses ecoreClass="videowatermarking.ecore#//VideoWatermark">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//VideoWatermark/database"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//VideoWatermark/filter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//VideoWatermark/user"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//VideoWatermark/video"/>
+    </genClasses>
+    <genClasses ecoreClass="videowatermarking.ecore#//Database">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//Database/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//Database/FrameNo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//Database/WatermarkImage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//Database/WatermarkedImage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//Database/video"/>
+      <genOperations ecoreOperation="videowatermarking.ecore#//Database/SaveData"/>
+    </genClasses>
+    <genClasses ecoreClass="videowatermarking.ecore#//Filter">
+      <genOperations ecoreOperation="videowatermarking.ecore#//Filter/Execute">
+        <genParameters ecoreParameter="videowatermarking.ecore#//Filter/Execute/filter"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="videowatermarking.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//User/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//User/Id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//User/FrameNo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//User/video"/>
+      <genOperations ecoreOperation="videowatermarking.ecore#//User/LoadVideo"/>
+      <genOperations ecoreOperation="videowatermarking.ecore#//User/PlayVideo"/>
+      <genOperations ecoreOperation="videowatermarking.ecore#//User/PauseVideo"/>
+    </genClasses>
+    <genClasses ecoreClass="videowatermarking.ecore#//GeneticAlgorithm">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//GeneticAlgorithm/database"/>
+      <genOperations ecoreOperation="videowatermarking.ecore#//GeneticAlgorithm/VideoToFrames"/>
+      <genOperations ecoreOperation="videowatermarking.ecore#//GeneticAlgorithm/SelectFrame"/>
+    </genClasses>
+    <genClasses ecoreClass="videowatermarking.ecore#//Video">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//Video/videoName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute videowatermarking.ecore#//Video/videoType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//Video/geneticalgorithm"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference videowatermarking.ecore#//Video/database"/>
+    </genClasses>
+    <genClasses ecoreClass="videowatermarking.ecore#//MPG"/>
+    <genClasses ecoreClass="videowatermarking.ecore#//MOV"/>
+    <genClasses ecoreClass="videowatermarking.ecore#//WebCm"/>
+  </genPackages>
+</genmodel:GenModel>
