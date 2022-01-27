@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated videowatermarking -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="videowatermarking.presentation.VideowatermarkingModelWizardID"
+            name="%_UI_VideowatermarkingModelWizard_label"
+            class="videowatermarking.presentation.VideowatermarkingModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/VideowatermarkingModelFile.gif">
+         <description>%_UI_VideowatermarkingModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated videowatermarking -->
+      <editor
+            id="videowatermarking.presentation.VideowatermarkingEditorID"
+            name="%_UI_VideowatermarkingEditor_label"
+            icon="icons/full/obj16/VideowatermarkingModelFile.gif"
+            extensions="videowatermarking"
+            class="videowatermarking.presentation.VideowatermarkingEditor"
+            contributorClass="videowatermarking.presentation.VideowatermarkingActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
